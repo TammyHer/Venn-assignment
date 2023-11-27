@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #3498db; /* Change color as needed */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.serachContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.sortButtons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.searchLayer {
+  display: flex;
+  justify-content: flex-start;
+}

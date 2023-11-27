@@ -43,11 +43,6 @@ function App() {
     setcurrentPage(page);
   }
 
-  // useEffect(() => {
-  //   if(currentSearch) {
-  //     fetchMovies(currentSearch, currentPage);
-  //   }
-  // },[currentPage])
 
   const onSort = useCallback((sortOption: SortOption) => {
     console.log( 'before' + JSON.stringify(movies));
@@ -63,12 +58,18 @@ function App() {
 
   return (
     <div className="container">
+      <div className='serachContainer'>
+        <div className='sortButtons'>
           <button onClick={() => onSort(SortOption.Year)}> Sort movies by year</button>
           <button onClick={() => onSort(SortOption.Title)}> Sort movies by title</button>
+        </div>
+        <div className='searchLayer'>
           <input placeholder='Type movie name...' value={currentSearch} onChange={(e) => setCurrentSearch(e.target.value)}></input>
           <button onClick={() => fetchMovies(currentSearch, 1)}> Search </button>
-          <MovieList moviesList={movies} />
-          <Pages currentPage={currentPage} totalPages={totalPages} onChange={(page: number) => changePage(page)} />
+        </div>
+      </div>
+      <MovieList moviesList={movies} />
+      <Pages currentPage={currentPage} totalPages={totalPages} onChange={(page: number) => changePage(page)} />
 
     </div>
   );
